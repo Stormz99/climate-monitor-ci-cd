@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: climate-monitor
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: climate-monitor
+  template:
+    metadata:
+      labels:
+        app: climate-monitor
+    spec:
+      containers:
+      - name: climate-monitor
+        image: ijiola/climate-monitor/climate-monitor:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: climate-monitor
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: climate-monitor

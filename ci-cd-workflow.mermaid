@@ -1,0 +1,15 @@
+flowchart TB
+    A[Developer Push] -->|Push to main branch| B[GitHub Actions Trigger]
+    
+    subgraph "CI Pipeline"
+    B --> C[Install Dependencies]
+    C --> D[Run Tests]
+    D --> E[Build Docker Image]
+    end
+    
+    subgraph "CD Pipeline"
+    E --> F[Push to DockerHub]
+    F --> G[Update K8s Manifests]
+    end
+    
+    G --> H[Ready for Deployment]
