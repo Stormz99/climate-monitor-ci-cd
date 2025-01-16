@@ -44,7 +44,7 @@ climate-monitor-gads/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR-USERNAME/climate-monitor-gads.git
+git clone https://Stormz99/climate-monitor-gads.git
 cd climate-monitor-gads
 ```
 
